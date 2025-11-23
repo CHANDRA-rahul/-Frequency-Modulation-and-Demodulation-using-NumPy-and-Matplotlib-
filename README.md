@@ -33,7 +33,49 @@ __Algorithm:__
 6. Plot the Signals: Use Matplotlib to plot the message signal, carrier signal, and modulated signal.
 
 __Programme:__
+```
+import numpy as np
+import matplotlib.pyplot as plt
+Am = 15.2
+Fm = 460
+B = 5.8
+Ac = 30.4
+Fc = 4600
+Fs = 4600000
+t = np.arange(0, 2/Fm, 1/Fs)
+em = Am * np.cos(2 * np.pi * Fm * t)
+plt.subplot(3, 1, 1)
+plt.plot(t, em)
+plt.grid()
+ec = Ac * np.cos(2 * np.pi * Fc * t)
+plt.subplot(3, 1, 2)
+plt.plot(t, ec)
+plt.grid()
+efm = Ac * np.cos((2*np.pi*Fc*t) + ( B*np.sin(2*np.pi*Fm*t)))
+plt.subplot(3, 1, 3)
+plt.plot(t, efm)
+plt.tight_layout()
+plt.show()
+```
+
+__Tabulation__:
+
+<img width="1056" height="1144" alt="image" src="https://github.com/user-attachments/assets/8d664eeb-192d-47c0-919c-eaa635ef74e1" />
+
+__Calculation__:
+
+▲f  = Fmax – Fc
+       = 4761.904 - 6600
+       = 161.904
+ß = ▲f/Fm
+   = 161.904 / 460
+   = 0.3
 
 __Output:__
 
+<img width="784" height="585" alt="image" src="https://github.com/user-attachments/assets/e74bf09b-39ab-4bed-b8af-77d4af8b904a" />
+
+
 __Result:__
+
+The message signal, carrier signal, and frequency modulated (FM) signal will be displayed in separate plots. The modulated signal will show frequency variations corresponding to the amplitude of the message signal.
